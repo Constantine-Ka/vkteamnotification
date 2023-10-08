@@ -1,0 +1,28 @@
+{"level":"INFO","time":"2023-10-08T20:50:50.609+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:50:50.609+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:50:50.609+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:52:18.716+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:52:18.717+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:52:18.717+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:52:46.971+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:52:46.971+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:52:46.971+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:52:54.894+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:52:54.894+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:52:54.894+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:53:21.794+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:53:21.794+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:53:21.794+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:54:40.193+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:54:40.193+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:54:40.193+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T20:57:52.469+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T20:57:52.470+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T20:57:52.470+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"INFO","time":"2023-10-08T21:01:26.628+0300","message":"SELECT messager_account FROM  WHERE user_blocked=0 AND user_id=18"}
+{"level":"ERROR","time":"2023-10-08T21:01:26.628+0300","message":"Ошибка при получении списка пользователей по ID"}
+{"level":"ERROR","time":"2023-10-08T21:01:26.628+0300","message":"Ошибка при поиске по id=18| Error 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE user_blocked=0 AND user_id=18' at line 1"}
+{"level":"ERROR","time":"2023-10-08T21:04:24.918+0300","message":"Ошибка при открытии файла .: open .: is a directory"}
+{"level":"ERROR","time":"2023-10-08T21:06:44.358+0300","message":"Ошибка при открытии файла .: open .: is a directory"}
+{"level":"ERROR","time":"2023-10-08T21:07:00.567+0300","message":"Ошибка при открытии файла .: open .: is a directory"}
+{"level":"ERROR","time":"2023-10-08T21:07:10.218+0300","message":"Ошибка при открытии файла .: open .: is a directory"}
