@@ -53,6 +53,7 @@ func SendText(c *cli.Context) error {
 	isFile := fileRoute != "."
 	if len(recipientMail) == 0 && len(recipientID) == 0 {
 		logg.Fatal("Получатель сообщения неуказан")
+
 		return errors.New("Получатель сообщения неуказан")
 	}
 	if len(recipientID) > 0 {
@@ -85,7 +86,7 @@ func SendText(c *cli.Context) error {
 	}
 	defer logg.Sync() // Отложенная синхронизация записи логов
 
-	return nil
+	return errors.New("ОК")
 }
 
 func main0() {
