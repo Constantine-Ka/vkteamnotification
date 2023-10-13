@@ -1,12 +1,13 @@
 package terminal
 
 import (
+	"fmt"
 	"github.com/urfave/cli/v2"
 	"log"
 	"os"
 )
 
-func GetFlags(callback func(ctx *cli.Context) error) {
+func GetFlags(callback func(ctx *cli.Context) (string, error)) (string, error) {
 	app := &cli.App{
 		Flags: []cli.Flag{
 			&cli.IntSliceFlag{
@@ -49,15 +50,28 @@ func GetFlags(callback func(ctx *cli.Context) error) {
 				Required: false,
 			},
 			&cli.BoolFlag{
+				Name:     "check",
+				Value:    false,
+				Aliases:  []string{"chck", "chek", "chec"},
+				Usage:    "Проверка возможности отправки сообщений. Если флаг указан, то сообщенние удалится сразу после отправки",
+				Required: false,
+			},
+			&cli.BoolFlag{
 				Name:    "keyboard",
 				Aliases: []string{"k"},
 				Usage:   "Бесполезен. Функционал пока не реализован",
 			},
 		},
-		Action: callback,
+		Action: func(context *cli.Context) error {
+			msgID, err := callback(context)
+			fmt.Println(msgID)
+			os.Exit(0)
+			return err
+		},
 	}
 
 	if err := app.Run(os.Args); err != nil {
 		log.Fatal(err)
 	}
+	return "", nil
 }

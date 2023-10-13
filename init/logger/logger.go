@@ -8,6 +8,7 @@ import (
 )
 
 func InitLogger() *zap.Logger {
+	os.MkdirAll("/var/log/vkteam", 0666)
 	os.OpenFile("/var/log/vkteam/app.log", os.O_WRONLY, 0666)
 	os.OpenFile("/var/log/vkteam/error.log", os.O_WRONLY, 0666)
 	cfg := zap.Config{

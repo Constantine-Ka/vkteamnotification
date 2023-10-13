@@ -21,7 +21,7 @@ func main() {
 	terminal.GetFlags(SendText)
 }
 
-func SendText(c *cli.Context) error {
+func SendText(c *cli.Context) (string, error) {
 	//Инициализация модулей
 	var setting init_model.Setting
 
@@ -29,20 +29,22 @@ func SendText(c *cli.Context) error {
 	ex, err := os.Executable() //Определяем путь к запускаемому файлу
 	if err != nil {
 		logg.Error(fmt.Sprintf("%v", err))
-		return errors.New(fmt.Sprintf("%v", err))
+		return "", errors.New(fmt.Sprintf("%v", err))
 	}
 	exPath := filepath.Dir(ex) // Определяем папку
 	config := configs.Init(exPath, logg)
 	DB, err := dbConnect.Init(config.DB)
 	if err != nil {
 		logg.Error(fmt.Sprintf("%v", err))
-		return errors.New(fmt.Sprintf("%v", err))
+		return "", errors.New(fmt.Sprintf("%v", err))
 	}
 	setting.VKTeam, err = botgolang.NewBot(config.Vkbot.Token)
 	if err != nil {
 		logg.Error(fmt.Sprintf("%v", err))
-		return errors.New(fmt.Sprintf("%v", err))
+		return "", errors.New(fmt.Sprintf("%v", err))
 	}
+	IDList := ""
+
 	//Получение входящих данных из флагов
 	recipientID := c.IntSlice("recipientID")
 	recipientMail := c.StringSlice("recipient")
@@ -50,11 +52,12 @@ func SendText(c *cli.Context) error {
 	projectName := c.String("project")
 	typeEvent := c.String("type")
 	fileRoute := c.String("file")
+	checkMode := c.Bool("check")
 	isFile := fileRoute != "."
 	if len(recipientMail) == 0 && len(recipientID) == 0 {
 		logg.Fatal("Получатель сообщения неуказан")
 
-		return errors.New("Получатель сообщения неуказан")
+		return "", errors.New("Получатель сообщения неуказан")
 	}
 	if len(recipientID) > 0 {
 		for _, id := range recipientID {
@@ -78,15 +81,35 @@ func SendText(c *cli.Context) error {
 		}
 		message.ParseMode = botgolang.ParseModeMarkdownV2
 		message.Text = fmt.Sprintf("*%s|%s* \n%s", typeEvent, projectName, messageInput)
-		errorSend := message.Send()
-		if errorSend != nil {
-			log.Print(errorSend)
-			return errorSend
+
+		if checkMode {
+			message.Text = "Проверка отправки"
+			errorSend := message.Send()
+			if errorSend != nil {
+				log.Print(errorSend)
+				logg.Error(fmt.Sprintf("%v", err))
+				return IDList, errorSend
+			}
+			err = message.Delete()
+			if err != nil {
+				log.Print(err)
+				logg.Error(fmt.Sprintf("%v", err))
+				return "", err
+			}
+			IDList = IDList + "|" + "OK"
+		} else {
+			errorSend := message.Send()
+			if errorSend != nil {
+				log.Print(errorSend)
+				logg.Error(fmt.Sprintf("%v", err))
+				return IDList, errorSend
+			}
+			IDList = IDList + "," + message.ID
 		}
+
 	}
 	defer logg.Sync() // Отложенная синхронизация записи логов
-
-	return errors.New("ОК")
+	return IDList, nil
 }
 
 func main0() {

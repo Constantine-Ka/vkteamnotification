@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/jmoiron/sqlx"
 	"go.uber.org/zap"
+	"log"
 	"simplevkteamnotifiction/configs"
 	init_model "simplevkteamnotifiction/init/init-model"
 	"simplevkteamnotifiction/internal/model"
@@ -24,6 +25,7 @@ func GetUsersChatID(db *sqlx.DB, cfg configs.Tables, logger *zap.Logger, id int)
 	query := fmt.Sprintf("SELECT messager_account FROM %s WHERE user_blocked=0 AND user_id=%d", cfg.Userlist, id)
 	err := db.Select(&UserList, query)
 	if err != nil {
+		log.Print(err)
 		logger.Info(query)
 		logger.Error("Ошибка при получении списка пользователей по ID")
 		return nil, err
